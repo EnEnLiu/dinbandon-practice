@@ -1,6 +1,16 @@
 <h1>使用者註冊</h1>
 
-<%= form_for(User.new, url: '/sign_up', method: 'post') do |f| %>
+<%= form_for(@user, url: '/sign_up', method: 'post') do |f| %>
+
+  <% if @user.errors.any? %>
+    <ul>
+      <% if @user.errors.full_messages.each do |message|%>
+        <li><%= message %></li>   
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
   <div>
     <%= f.label :email %>
     <%= f.text_field :email %>
@@ -10,8 +20,8 @@
     <%= f.password_field :password %>
   </div>
   <div>
-    <%= f.label :password_confirm , "確認密碼" %>
-    <%= f.password_field :password_confirm %>
+    <%= f.label :password_confirmation , "確認密碼" %>
+    <%= f.password_field :password_confirmation %>
   </div>
   <div>  
     <%= f.submit "註冊"%>
