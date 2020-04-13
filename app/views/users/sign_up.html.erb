@@ -1,15 +1,15 @@
 <h1>使用者註冊</h1>
 
-<%= form_for(@user, url: '/sign_up', method: 'post') do |f| %>
+  <%= form_for(@user, url: '/sign_up', method: 'post') do |f| %>  
 
-  <% if @user.errors.any? %>
-    <ul>
-      <% if @user.errors.full_messages.each do |message|%>
-        <li><%= message %></li>   
-      <% end %>
-    </ul>
+    <% if @user.errors.any? %>
+      <ul>
+        <% if @user.errors.full_messages.each do |message|%>
+          <li><%= message %></li>   
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
-<% end %>
 
   <div>
     <%= f.label :email %>
