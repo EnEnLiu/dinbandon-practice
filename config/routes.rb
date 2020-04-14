@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources  :items
+
+
   get "/login", to: "users#login"
   post "/login", to: "users#sign_in"
   delete "/logout", to: "users#logout"
