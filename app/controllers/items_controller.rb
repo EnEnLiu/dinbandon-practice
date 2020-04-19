@@ -1,7 +1,12 @@
 class ItemsController < ApplicationController
+  before_action :find_item, only: [:show, :edit, :update, :destroy]
+
   
   def index
     @items = Item.all
+  end
+
+  def show
   end
 
   def new
@@ -18,11 +23,22 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to items_path, notice: "成功更新餐點"
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
+    @item.destroy
     redirect_to items_path, notice: "成功刪除餐點"
   end
+
 
   private
   def item_params 
@@ -32,4 +48,7 @@ class ItemsController < ApplicationController
                                  :spec)
   end
 
+  def find_item
+    @item = Item.find(params[:id])  
+  end
 end
