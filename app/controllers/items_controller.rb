@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params) 
 
     if @item.save 
-      redirect_to items_path, notice: '新增成功'
+      redirect_to @item, notice: '新增成功'
     else
       render :new
     end
