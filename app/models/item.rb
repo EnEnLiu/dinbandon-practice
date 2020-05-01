@@ -4,4 +4,6 @@ class Item < ApplicationRecord
                     numericality: { greater_than: 0 }
 
   belongs_to :category 
+  
+  has_one_attached :cover
 end

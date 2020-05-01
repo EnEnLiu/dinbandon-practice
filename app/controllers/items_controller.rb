@@ -46,7 +46,8 @@ class ItemsController < ApplicationController
                                  :description,
                                  :price,
                                  :spec,
-                                 :category_id)
+                                 :category_id,
+                                 :cover)
   end
 
   def find_item
