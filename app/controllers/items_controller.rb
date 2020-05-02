@@ -51,6 +51,7 @@ class ItemsController < ApplicationController
   end
 
   def find_item
-    @item = Item.find(params[:id])  
+    @item = Item.find(params[:id])
+    # @item = Item.find_by!(params[:id], deleted_at: nil)  
   end
 end
